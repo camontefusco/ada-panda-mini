@@ -4,6 +4,8 @@
 
 👉 For background on **why ADA assays matter, case studies, pharma workflows, and the role of data science**, see [introduction.md](./introduction.md).
 
+![Banner](banner.png)
+
 ## 🚀 Executive Summary
 
 - **Problem:** Standard ADA assays underestimate immunogenicity at therapeutic drug levels due to drug interference.  
