@@ -1,0 +1,37 @@
+# Low-immunogenicity scenario for ada-panda-mini
+#Lower ADA incidence (~20%), mild ADA effect on clearance, closer ADA+/ADA− troughs, slightly tighter variability.
+drug: adalimumab
+
+dose_regimen:
+  route: SC
+  dose_mg: 40
+  interval_days: 14
+
+pk_model:
+  type: one_compartment
+  F: 0.64
+  V_L: 6.0
+  CL_base_L_per_day: 0.24
+  CL_multiplier_ADApos: 1.15  # mild ADA effect on clearance
+
+trough_targets_week52:
+  ADA_negative_ng_per_mL: 10400
+  ADA_positive_ng_per_mL: 8200   # small separation vs ADA-
+  lloq_ng_per_mL: 250
+  lloq_rule: set_to_zero
+
+ada_incidence:
+  visits_weeks: [26, 30, 36, 52]
+  pct_ADA_positive: [12, 15, 17, 20]  # lower conversion over time
+
+assay_recovery:
+  standard:
+    knot_points: [[0,0.98],[10,0.70],[50,0.50],[100,0.35],[200,0.20],[800,0.05]]
+  panda:
+    knot_points: [[0,0.96],[10,0.92],[50,0.90],[100,0.88],[200,0.85],[800,0.70]]
+
+cohort:
+  n_subjects: 100
+  iiv_lognormal_sd_ADAneg: 0.22
+  iiv_lognormal_sd_ADApos: 0.26
+  proportional_residual_sd: 0.12

@@ -1,0 +1,37 @@
+# Literature-anchored config for ada-panda-mini (no digitization required)
+# Anchored to literature: Week-52 Ctrough targets by ADA status (RMD Open 2021), ADA-dependent clearance (~+30%; Ehrenpreis 2017), and assay recovery (Celerion EBF; PandA vs Standard).
+drug: adalimumab
+
+dose_regimen:
+  route: SC
+  dose_mg: 40
+  interval_days: 14
+
+pk_model:
+  type: one_compartment
+  F: 0.64
+  V_L: 6.0
+  CL_base_L_per_day: 0.24
+  CL_multiplier_ADApos: 1.30
+
+trough_targets_week52:
+  ADA_negative_ng_per_mL: 10400
+  ADA_positive_ng_per_mL: 4855
+  lloq_ng_per_mL: 250
+  lloq_rule: set_to_zero
+
+ada_incidence:
+  visits_weeks: [26, 30, 36, 52]
+  pct_ADA_positive: [39, 41, 40, 38]
+
+assay_recovery:
+  standard:
+    knot_points: [[0,0.98],[10,0.60],[50,0.35],[100,0.20],[200,0.10],[800,0.00]]
+  panda:
+    knot_points: [[0,0.95],[10,0.90],[50,0.88],[100,0.85],[200,0.80],[800,0.65]]
+
+cohort:
+  n_subjects: 120
+  iiv_lognormal_sd_ADAneg: 0.25
+  iiv_lognormal_sd_ADApos: 0.35
+  proportional_residual_sd: 0.15
