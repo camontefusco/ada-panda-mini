@@ -53,7 +53,7 @@ This repo provides a **minimal, reproducible simulation** of:
 
 ## 🖼️ PandA Workflow (schematic)
 
-![PandA workflow](docs/panda_workflow.png)
+![PandA workflow](./docs/panda_workflow.png)
 
 *PandA improves ADA drug tolerance by precipitating complexes (PEG), 
 acid-dissociating them under controlled pH, and detecting freed ADA with 
