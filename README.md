@@ -118,68 +118,69 @@ make all   # runs 01→04, saves figures + tlgs + benchmarks
 ```
 Outputs will appear in /reports.
 
----
-
 ## 📈 Results
 
-### 1. Drug-tolerance curves
-![Drug tolerance curve](reports/figures/01_drug_tolerance_curve.png)
+### 1. Drug tolerance: Sim vs Literature
+![Drug tolerance overlay](reports/figures/recovery_overlay_sim_vs_lit.png)
 
 **Interpretation:**  
-- The **standard bridging assay** shows a sharp drop in ADA recovery above ~10 µg/mL drug, consistent with drug masking and loss of sensitivity.  
-- The **PandA-corrected assay** maintains recovery ≥80% up to ~100–500 µg/mL drug, in line with literature reports (Zoghbi 2015; Sanofi EBF 2024).  
-- **Regulatory meaning:** drug tolerance must be validated; bridging alone would fail to meet tolerance requirements for therapeutic exposures.
+- The **standard bridging assay (sim & lit)** loses recovery above ~10 µg/mL, confirming poor drug tolerance.  
+- The **PandA assay** maintains ≥80% recovery up to ~200 µg/mL (sim) and ~1000 µg/mL (lit), in line with published benchmarks.  
+- **Regulatory meaning:** PandA meets FDA-style drug tolerance expectations, while standard fails.
 
 ---
 
-### 2. ADA time series (True vs Measured vs PandA)
-![ADA time series](reports/figures/02_ada_time_series.png)
+### 2. PASS/ALERT benchmarks
+![PASS/ALERT table](reports/figures/pass_alert_table.png)
 
 **Interpretation:**  
-- **True ADA** rises steadily after dosing.  
-- **Measured (uncorrected)** underestimates ADA during periods of high drug concentration, masking immunogenicity.  
-- **PandA-corrected** closely tracks the true ADA profile.  
-- **Regulatory meaning:** Without correction, trial reports would understate ADA incidence, misinforming risk assessment.
+- **Standard assays (sim & lit)** fail the ≥80% recovery cutoff (ALERT).  
+- **PandA assays (sim & lit)** PASS at therapeutic drug levels.  
+- **Regulatory meaning:** simple benchmark summary for validation reports.
 
 ---
 
-### 3. Measurement bias vs drug concentration
-![Bias by drug bin](reports/figures/03_bias_by_drug_bin.png)
+### 3. ADA incidence detection bias
+![ADA incidence](reports/figures/ada_incidence_detection_bias.png)
 
 **Interpretation:**  
-- **Bias** in standard assay grows increasingly negative as drug increases, reflecting systematic under-recovery.  
-- **PandA correction** yields near-zero bias across drug bins.  
-- **Regulatory meaning:** FDA guidance requires demonstration of bias control; PandA provides evidence of acceptable accuracy.
+- **Standard assay** underestimates ADA incidence (~25–30%).  
+- **PandA assay** restores incidence (~37–40%), closer to the simulated truth (~38–41%).  
+- **Regulatory meaning:** without correction, immunogenicity risk is understated.
 
 ---
 
-### 4. Impact on PK target attainment
-![Target attainment impact](reports/figures/04_target_attainment.png)
+### 4. Detected ADA vs exposure
+![ADA vs exposure](reports/figures/ada_detection_vs_exposure.png)  
+![Week-52 by detected ADA](reports/figures/wk52_by_detected_ADA_assay.png)
 
 **Interpretation:**  
-- **Uncorrected assay** overestimates the proportion of patients achieving exposure targets.  
-- **PandA-corrected data** reveals fewer patients above threshold, especially ADA-positive subjects.  
-- **Regulatory meaning:** Bioanalytical method choice directly influences dose recommendations and labeling.
+- At **week 52**, ADA+ subjects show lower troughs than ADA−, but the effect is muted if ADA is detected only by standard assays.  
+- **PandA detection** better separates ADA+ vs ADA− exposure distributions.  
+- **Regulatory meaning:** assay choice changes interpretation of PK impact.
 
 ---
 
-### 5. PASS/ALERT heatmap
-![PASS ALERT heatmap](reports/figures/05_pass_alert_heatmap.png)
+### 5. True exposure–response
+![True exposure–response](reports/figures/exposure_response_true.png)
 
 **Interpretation:**  
-- **Standard assay** triggers ALERT at drug levels ≥10 µg/mL, failing the ≥80% recovery benchmark.  
-- **PandA** yields PASS up to high µg/mL–mg/mL ranges.  
-- **Regulatory meaning:** clear visual justification for method selection in validation reports.
+- True ADA+ subjects cluster at lower drug levels and reduced efficacy probability.  
+- The fitted E–R curve confirms lower target attainment when ADA is present.  
+- **Regulatory meaning:** bioanalytical bias propagates into PK/PD and efficacy models.
 
 ---
 
 ## 🧾 Summary
 
-- **Assay artifact:** Standard bridging ADA assays underestimate ADA at therapeutic drug levels.  
-- **Solution:** PandA improves drug tolerance, maintains recovery, and reduces bias.  
-- **Downstream impact:** Corrected ADA profiles reveal true clearance increases and lower target attainment in ADA-positive patients.  
-- **Clinical pharmacology relevance:** Bioanalytical method choice feeds directly into PK/PD, exposure–response, and ultimately **dose selection**.  
-- **Regulatory alignment:** This simulation reflects expectations from FDA/EMA to validate drug tolerance and document method selection.
+- **Assay artifact:** Standard bridging assays underestimate ADA incidence and PK impact.  
+- **Solution:** PandA improves drug tolerance, restores ADA detection, and reduces bias.  
+- **Downstream impact:** Corrected ADA detection changes PK, exposure–response, and dose justification.  
+- **Regulatory alignment:** Matches FDA/EMA expectations to document drug tolerance validation and justify assay choice.
 
-Plate: High-bind, acidic during coat
-Detection: Anti-Ig, ECL, blockers optimized
+---
+
+## 📬 Contact
+Carlos Montefusco
+📧 cmontefusco@gmail.com
+🔗 GitHub: /camontefusco
