@@ -53,7 +53,7 @@ This repo provides a **minimal, reproducible simulation** of:
 
 ## 🖼️ PandA Workflow (schematic)
 
-![PandA workflow](blob/docs/panda_workflow.png)
+![PandA workflow](https://github.com/camontefusco/ada-panda-mini/raw/docs/panda_workflow.png)
 
 *PandA improves ADA drug tolerance by precipitating complexes (PEG), 
 acid-dissociating them under controlled pH, and detecting freed ADA with 
@@ -121,7 +121,7 @@ Outputs will appear in /reports.
 ## 📈 Results
 
 ### 1. Drug tolerance: Sim vs Literature
-![Drug tolerance overlay](figures/recovery_overlay_sim_vs_lit.png)
+![Drug tolerance overlay](https://github.com/camontefusco/ada-panda-mini/raw/figures/recovery_overlay_sim_vs_lit.png)
 
 **Interpretation:**  
 - The **standard bridging assay (sim & lit)** loses recovery above ~10 µg/mL, confirming poor drug tolerance.  
@@ -131,7 +131,7 @@ Outputs will appear in /reports.
 ---
 
 ### 2. PASS/ALERT benchmarks
-![PASS/ALERT table](blob/figures/pass_alert_table.png)
+![PASS/ALERT table](https://github.com/camontefusco/ada-panda-mini/raw/figures/pass_alert_table.png)
 
 **Interpretation:**  
 - **Standard assays (sim & lit)** fail the ≥80% recovery cutoff (ALERT).  
@@ -141,7 +141,7 @@ Outputs will appear in /reports.
 ---
 
 ### 3. ADA incidence detection bias
-![ADA incidence](blob/figures/ada_incidence_detection_bias.png)
+![ADA incidence](https://github.com/camontefusco/ada-panda-mini/raw/figures/ada_incidence_detection_bias.png)
 
 **Interpretation:**  
 - **Standard assay** underestimates ADA incidence (~25–30%).  
@@ -151,8 +151,8 @@ Outputs will appear in /reports.
 ---
 
 ### 4. Detected ADA vs exposure
-![ADA vs exposure](blob/figures/ada_detection_vs_exposure.png)  
-![Week-52 by detected ADA](reports/figures/wk52_by_detected_ADA_assay.png)
+![ADA vs exposure](https://github.com/camontefusco/ada-panda-mini/raw/figures/ada_detection_vs_exposure.png)  
+![Week-52 by detected ADA](https://github.com/camontefusco/ada-panda-mini/raw/figures/wk52_by_detected_ADA_assay.png)
 
 **Interpretation:**  
 - At **week 52**, ADA+ subjects show lower troughs than ADA−, but the effect is muted if ADA is detected only by standard assays.  
@@ -162,7 +162,7 @@ Outputs will appear in /reports.
 ---
 
 ### 5. True exposure–response
-![True exposure–response](blob/figures/exposure_response_true.png)
+![True exposure–response](https://github.com/camontefusco/ada-panda-mini/raw/figures/exposure_response_true.png)
 
 **Interpretation:**  
 - True ADA+ subjects cluster at lower drug levels and reduced efficacy probability.  
